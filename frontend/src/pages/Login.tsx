@@ -14,7 +14,8 @@ const Login: React.FC = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:5005/api/auth/login', {
+      
+      const res = await fetch(`${import.meta.env.DEV ? 'http://localhost:5005' : 'https://intelligent-smart-timetable-management-system-production.up.railway.app'}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
